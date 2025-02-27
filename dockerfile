@@ -8,11 +8,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
  && rm -rf /var/lib/apt/lists/*
 
-# Install Rust (using rustup) so that packages requiring Rust (like tiktoken) can be built.
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# Install Rust using rustup
+# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-# Add the Rust binaries to PATH
-ENV PATH="/root/.cargo/bin:${PATH}"
+# # Add Rust binaries to PATH
+# ENV PATH="/root/.cargo/bin:${PATH}"
+
+# # Verify Rust installation (optional but helps for debugging)
+# RUN rustc --version
 
 # Set working directory
 WORKDIR /app
