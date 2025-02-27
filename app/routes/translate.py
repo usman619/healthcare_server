@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from server.models import TranslateRequest
+from app.models import TranslateRequest
 from google import genai
 from dotenv import load_dotenv
 import os
