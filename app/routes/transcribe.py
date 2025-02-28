@@ -7,6 +7,8 @@ import os
 import io
 import tempfile
 
+AudioSegment.converter = "/usr/bin/ffmpeg"
+
 load_dotenv()
 
 gemini_api_key = os.getenv("GEMINI_API_KEY")
