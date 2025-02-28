@@ -2,12 +2,14 @@
 # Install ffmpeg
 apt-get update && apt-get install -y ffmpeg
 
-# Add /usr/bin to PATH
-echo 'export PATH="/usr/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+# Set the FFMPEG_BINARY environment variable for pydub
+export FFMPEG_BINARY=/usr/bin/ffmpeg
 
-# Install python dependencies
+# (Optional) You can echo the value to verify:
+echo "FFMPEG_BINARY is set to $FFMPEG_BINARY"
+
+# Install Python dependencies
 pip install --no-cache-dir -r requirements.txt
 
-# Start the server
+# Start the FastAPI server
 uvicorn app.server:app --host=0.0.0.0 --port=8080
