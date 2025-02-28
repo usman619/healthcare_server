@@ -8,21 +8,18 @@ RUN apt-get update && \
     build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-# (Optional) Verify ffmpeg is installed by printing its location
-RUN which ffmpeg
-
 # Set working directory
 WORKDIR /app
 
-# Copy and install Python dependencies
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the rest of the application code
+# Copy the rest of your application
 COPY . .
 
-# Expose the port (Railway typically uses 8080)
+# Expose the port used by your FastAPI server
 EXPOSE 8080
 
-# Start the FastAPI server using uvicorn
-CMD ["uvicorn", "app.server:app", "--host", "0.0.0.0", "--port", "8080"]
+# Start the FastAPI server
+CMD ["uvicorn", "app.server:app", "--host=0.0.0.0", "--port=8080"]
