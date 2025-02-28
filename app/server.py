@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import translate, transcribe
+from pydub import AudioSegment
+
+AudioSegment.converter = "/usr/bin/ffmpeg"
 
 app = FastAPI()
 
