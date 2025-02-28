@@ -9,6 +9,7 @@ FastAPI server for Healthcare Translation Web App.
   - Google Gemini AI
 - **Audio Processing**: pydub
 - **Environment**: Python 3.8+
+- **Deployment Platform**: (railway.com)[https://railway.com/]
 
 ## Project Structure 📁
 
